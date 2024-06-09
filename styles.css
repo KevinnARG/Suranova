@@ -4066,10 +4066,7 @@ footer .container2 .left button:hover {
   }
 }
 @media screen and (min-width: 1920px) {
-  header i {
-    font-size: 4rem;
-    color: #2130db;
-    margin-left: 10rem;
+  #menu {
     display: none;
   }
 }
