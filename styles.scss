@@ -959,6 +959,23 @@ footer {
         }
     }
 
+    .navbar {
+        display: none
+    }
+
+        .menu-btn {
+            position: fixed;
+            display: flex;
+            top: 50px;
+            right: 60px;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 28px; /* Adjusted height for more spacing */
+            cursor: pointer;
+            z-index: 1001;
+        }
+
     #seccion1 {
         display: flex;
         height: 46rem;
@@ -1615,6 +1632,23 @@ footer {
         width: 100%;
         transition: all ease-in-out 0.3s;
         z-index: 555555;
+
+        .navbar {
+            display: none
+        }
+    
+            .menu-btn {
+                position: fixed;
+                display: flex;
+                top: 50px;
+                right: 60px;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 28px; /* Adjusted height for more spacing */
+                cursor: pointer;
+                z-index: 1001;
+            }
     
         .logo {
             display: flex;

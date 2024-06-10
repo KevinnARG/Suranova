@@ -801,6 +801,21 @@ footer .container2 .left button:hover {
     opacity: 1;
     visibility: visible;
   }
+  .navbar {
+    display: none;
+  }
+  .menu-btn {
+    position: fixed;
+    display: flex;
+    top: 50px;
+    right: 60px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 28px; /* Adjusted height for more spacing */
+    cursor: pointer;
+    z-index: 1001;
+  }
   #seccion1 {
     display: flex;
     height: 46rem;
@@ -1368,6 +1383,21 @@ footer .container2 .left button:hover {
     width: 100%;
     transition: all ease-in-out 0.3s;
     z-index: 555555;
+  }
+  header .navbar {
+    display: none;
+  }
+  header .menu-btn {
+    position: fixed;
+    display: flex;
+    top: 50px;
+    right: 60px;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 28px; /* Adjusted height for more spacing */
+    cursor: pointer;
+    z-index: 1001;
   }
   header .logo {
     display: flex;
