@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: content-box;
 }
 
 h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
@@ -628,6 +629,77 @@ footer .container2 .left button:hover {
   transition: all ease-in-out 250ms;
 }
 
+.sombra {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4862745098);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  transition: all ease-in-out 250ms;
+}
+
+.menu-btn {
+  position: fixed;
+  display: flex;
+  top: 50px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 28px; /* Adjusted height for more spacing */
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-btn span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #2130db;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(243, 242, 242, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.menu a {
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+  margin: 20px 0;
+  font-family: "Kanit", sans-serif;
+}
+
+.menu.active {
+  transform: translateX(0);
+}
+
+.menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 10px);
+}
+
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -10px);
+}
+
 @media screen and (max-width: 374px) {
   header {
     display: flex;
@@ -666,106 +738,7 @@ footer .container2 .left button:hover {
     position: relative;
   }
   header i {
-    font-size: 4rem;
-    color: #2130db;
-    margin-left: 6rem;
-  }
-  header a {
-    font-family: "Kanit", sans-serif;
-    text-decoration: none;
-    color: black;
-    margin-left: 4rem;
-    padding-bottom: 5px;
-    background: linear-gradient(0deg, #2130db, #2130db) bottom center no-repeat;
-    background-size: 0px 3px;
-    transition: 0.5s;
-    display: none;
-  }
-  header a:hover {
-    color: #2130db;
-    background-size: 100% 3px;
-  }
-  header a i {
-    font-size: 0.8rem;
-  }
-  header .dropdown {
-    display: block; /* Cambia esto a block en lugar de none */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-left: 4rem;
-    border-radius: 0.5rem;
-    visibility: hidden;
-    margin-top: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  header .nav-link:hover + .dropdown,
-  header .dropdown:hover {
-    opacity: 1;
-    visibility: visible;
-  }
-  header .dropdown-link {
-    text-decoration: none;
-    color: #000000;
-    padding: 10px 15px;
-    display: flex;
-    margin: 0;
-    min-width: 150px;
-  }
-  header .dropdown-link:hover {
-    background-color: #f1f1f1;
-  }
-  header .nav-item:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-@media screen and (min-width: 375px) and (max-width: 424px) {
-  header {
-    display: flex;
-    height: 8rem;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 4rem;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    transition: all ease-in-out 0.3s;
-    z-index: 555555;
-  }
-  header .logo {
-    display: flex;
-    align-items: center;
-    margin-left: 4rem;
-  }
-  header .logo img {
-    width: 5rem;
-  }
-  header .logo h3 {
-    font-family: "Kanit", sans-serif;
-    font-size: 1.8rem;
-    margin-left: 1rem;
-    display: none;
-  }
-  header .nav-menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-right: 4rem;
-    display: flex;
-  }
-  header .nav-item {
-    position: relative;
-  }
-  header i {
-    font-size: 4rem;
+    font-size: 3.4rem;
     color: #2130db;
     margin-left: 8rem;
   }
@@ -912,10 +885,664 @@ footer .container2 .left button:hover {
     width: 16rem;
     display: flex;
     margin-right: 5rem;
-    height: 14rem;
+    height: fit-content;
+    padding-bottom: 2rem;
     flex-direction: column;
     align-items: center;
     border-radius: 2rem;
+    transition: all ease-in-out 0.3s;
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta:hover {
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.0549019608);
+    background-color: rgba(214, 213, 213, 0.2745098039);
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta img {
+    display: none;
+    width: 5rem;
+    margin-top: 1rem;
+    margin-left: 2rem;
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta .flex {
+    margin-left: 2rem;
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta h4 {
+    font-family: "Kanit", sans-serif;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta h6 {
+    font-family: "Kanit", sans-serif;
+    font-size: 0.8rem;
+    padding-right: 2rem;
+    font-weight: lighter;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta button {
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: transparent;
+    border: 2px solid black;
+    margin-top: 1rem;
+    font-family: "Kanit", sans-serif;
+    transition: all ease-in-out 0.3s;
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta button:hover {
+    cursor: pointer;
+    background-color: transparent;
+    transition: all ease-in-out 0.3s;
+    background-color: #2130db;
+    border: 2px solid #2130db;
+    color: white;
+  }
+  #seccion2 .container2 .container-tarjetas #diseno {
+    margin-top: 5rem;
+  }
+  #seccion2 .container2 .container-tarjetas #marketing {
+    margin-top: -5rem;
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta h4:hover, #seccion2 .container2 .container-tarjetas .tarjeta h6:hover {
+    cursor: pointer;
+  }
+  #seccion3 {
+    display: flex;
+    margin-top: 24rem;
+    width: 100%;
+  }
+  #seccion3 .container3 {
+    background-size: cover;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  #seccion3 .container3 h5 {
+    font-family: "Kanit", sans-serif;
+    color: #2130db;
+    font-size: 1.2rem;
+    margin-left: 3rem;
+    margin-top: 4rem;
+    font-weight: normal;
+  }
+  #seccion3 .container3 h1 {
+    font-family: "Kanit", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 3.4rem;
+    margin-left: 3rem;
+  }
+  #seccion3 .container3 .links-container {
+    display: flex;
+    margin-top: 4rem;
+    margin-left: 3rem;
+    flex-direction: column;
+  }
+  #seccion3 .container3 .links-container a {
+    font-family: "Kanit", sans-serif;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    margin-right: 5rem;
+    text-wrap: nowrap;
+    margin-bottom: 2rem;
+  }
+  #seccion3 .container3 .links-container a b {
+    font-weight: normal;
+    padding-bottom: 5px;
+    background: linear-gradient(0deg, #2130db, #2130db) bottom center no-repeat;
+    background-size: 100% 3px;
+    transition: 0.5s;
+  }
+  #seccion3 .container3 .trabajos-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 3rem;
+    margin-left: 3rem;
+  }
+  #seccion3 .container3 .trabajos-container .trabajo {
+    border-radius: 1rem;
+    background-color: #fff;
+    width: 18rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all ease-in-out 250ms;
+    margin-right: 8rem;
+    padding-bottom: 1rem;
+  }
+  #seccion3 .container3 .trabajos-container .trabajo h2 {
+    font-family: "Kanit", sans-serif;
+    justify-content: center;
+    padding-top: 2rem;
+    font-size: 1.6rem;
+    font-weight: normal;
+  }
+  #seccion3 .container3 .trabajos-container .trabajo p {
+    font-family: "Kanit", sans-serif;
+    font-weight: normal;
+    padding-top: 1rem;
+    color: #000000;
+  }
+  #seccion3 .container3 .trabajos-container .trabajo a {
+    font-family: "Kanit", sans-serif;
+    color: #2130db;
+    text-decoration: none;
+    padding-top: 1rem;
+    width: fit-content;
+  }
+  #seccion3 .container3 .trabajos-container .trabajo hr {
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+    border-color: rgba(0, 0, 0, 0.1215686275);
+  }
+  #seccion3 .container3 .trabajos-container .trabajo h4 {
+    font-family: "Kanit", sans-serif;
+    padding-top: 1rem;
+    font-weight: normal;
+  }
+  #seccion3 .container3 .linkExt {
+    font-family: "Kanit", sans-serif;
+    text-decoration: none;
+    color: black;
+    margin-left: 6rem;
+    margin-top: 3rem;
+    width: fit-content;
+    padding-bottom: 5px;
+    background: linear-gradient(0deg, #000000, #2130db) bottom center no-repeat;
+    background-size: 100% 2px;
+    transition: all ease-in-out 0.3s;
+  }
+  #seccion3 .container3 .linkExt:hover {
+    cursor: pointer;
+    color: #2130db;
+    transition: all ease-in-out 0.3s;
+  }
+  #seccion4 {
+    display: flex;
+    width: 100%;
+  }
+  #seccion4 .container4 {
+    background-size: cover;
+    width: 100%;
+    background-image: url("cuadrados.jpg");
+    display: flex;
+    flex-direction: column;
+    padding-top: 8rem;
+    padding-bottom: 6rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #seccion4 .container4 h5 {
+    font-family: "Kanit", sans-serif;
+    color: #000000;
+    font-size: 1.3rem;
+    margin-top: 4rem;
+    font-weight: normal;
+  }
+  #seccion4 .container4 h4 {
+    font-family: "Kanit", sans-serif;
+    font-weight: normal;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    color: #000000;
+    margin-left: 3rem;
+    padding-right: 2rem;
+  }
+  #seccion4 .container4 h1 {
+    font-family: "Kanit", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    padding-right: 2rem;
+  }
+  #seccion4 .container4 .tarjetas-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 4rem;
+  }
+  #seccion4 .container4 .tarjetas-container .tarjeta {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 3rem;
+    margin-left: 3rem;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 3rem;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    border-radius: 1rem;
+    transition: all ease-in-out 250ms;
+  }
+  #seccion4 .container4 .tarjetas-container .tarjeta h1:hover, #seccion4 .container4 .tarjetas-container .tarjeta h2:hover, #seccion4 .container4 .tarjetas-container .tarjeta h3:hover, #seccion4 .container4 .tarjetas-container .tarjeta h4:hover, #seccion4 .container4 .tarjetas-container .tarjeta h5:hover, #seccion4 .container4 .tarjetas-container .tarjeta h6:hover {
+    cursor: pointer;
+  }
+  #seccion4 .container4 .tarjetas-container .tarjeta:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1647058824);
+    box-shadow: 2px 15px 10px rgba(153, 143, 143, 0.1176470588);
+    transition: all ease-in-out 250ms;
+  }
+  #seccion4 .container4 .tarjetas-container .tarjeta i {
+    font-size: 2rem;
+  }
+  #seccion4 .container4 .tarjetas-container .tarjeta h2 {
+    font-family: "Kanit", sans-serif;
+    color: #2130db;
+    font-size: 4rem;
+    font-weight: normal;
+  }
+  #seccion4 .container4 .tarjetas-container .tarjeta h3 {
+    font-family: "Kanit", sans-serif;
+    font-weight: normal;
+    font-size: 1.3rem;
+  }
+  #seccion5 {
+    display: flex;
+    width: 100%;
+  }
+  #seccion5 .container5 {
+    background-size: cover;
+    width: 100%;
+    background-image: url("rombos.jpg");
+    display: flex;
+    flex-direction: column;
+    padding-top: 14rem;
+    padding-bottom: 14rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #seccion5 .container5 img {
+    position: absolute;
+    margin-left: -80rem;
+    margin-top: 23rem;
+  }
+  #seccion5 .container5 h5 {
+    font-family: "Kanit", sans-serif;
+    color: #f7d200;
+    font-size: 1.3rem;
+    margin-top: 3rem;
+    font-weight: normal;
+  }
+  #seccion5 .container5 h1 {
+    font-family: "Kanit", sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 3rem;
+    text-align: center;
+    font-weight: normal;
+  }
+  #seccion5 .container5 button {
+    width: 14rem;
+    height: 4rem;
+    background-color: white;
+    border-radius: 1rem;
+    border: 2px solid white;
+    font-family: "Kanit", sans-serif;
+    color: #2130db;
+    margin-top: 2rem;
+    font-size: 1rem;
+    box-shadow: 2px 5px 10px rgba(33, 49, 219, 0.337254902);
+    transition: all ease-in-out 250ms;
+  }
+  #seccion5 .container5 button:hover {
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid white;
+    transition: all ease-in-out 250ms;
+    color: white;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 40rem;
+    padding-bottom: 8rem;
+  }
+  footer .rrss {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    place-items: center;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 5rem;
+  }
+  footer .rrss a {
+    text-decoration: none;
+    margin-top: 2rem;
+  }
+  footer .rrss a i {
+    font-size: 2rem;
+    color: rgba(102, 106, 125, 0.3215686275);
+    transition: all ease-in-out 250ms;
+  }
+  footer .rrss a i:hover {
+    cursor: pointer;
+    color: #2d2e35;
+    transition: all ease-in-out 250ms;
+  }
+  footer .container2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    justify-content: center;
+  }
+  footer .container2 hr {
+    opacity: 0.3;
+    margin-top: 3rem;
+  }
+  footer .container2 .right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0rem;
+    margin-top: 5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 4rem;
+  }
+  footer .container2 .right .izq, footer .container2 .right .med, footer .container2 .right .der {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  footer .container2 .right .izq h3, footer .container2 .right .med h3, footer .container2 .right .der h3 {
+    font-family: "Kanit", sans-serif;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  footer .container2 .right .izq a, footer .container2 .right .med a, footer .container2 .right .der a {
+    text-decoration: none;
+    font-family: "Kanit", sans-serif;
+    color: #666a7d;
+    font-weight: normal;
+    margin-bottom: 1rem;
+    width: fit-content;
+    transition: all ease-in-out 250ms;
+  }
+  footer .container2 .right .izq a:hover, footer .container2 .right .med a:hover, footer .container2 .right .der a:hover {
+    cursor: pointer;
+    color: #2d2e35;
+    transition: all ease-in-out 250ms;
+  }
+  footer .container2 .left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -8rem;
+  }
+  footer .container2 .left h1 {
+    font-family: "Kanit", sans-serif;
+    margin-left: 0rem;
+    font-size: 3rem;
+    font-weight: normal;
+  }
+  footer .container2 .left p {
+    font-family: "Kanit", sans-serif;
+    margin-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+  footer .container2 .left span i {
+    position: absolute;
+    margin-top: 3.3rem;
+    color: rgba(33, 49, 219, 0.2823529412);
+    margin-left: 1rem;
+    font-size: 1.4rem;
+  }
+  footer .container2 .left input {
+    width: 80%;
+    height: 4rem;
+    margin-left: 0;
+    margin-top: 2rem;
+    padding-left: 3rem;
+    font-family: "Kanit", sans-serif;
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    box-shadow: 2px 5px 20px rgba(218, 210, 210, 0.479);
+    transition: all ease-in-out 250ms;
+  }
+  footer .container2 .left input:focus {
+    transition: all ease-in-out 250ms;
+  }
+  footer .container2 .left button {
+    width: 8rem;
+    box-shadow: 2px 5px 20px rgba(156, 147, 147, 0.479);
+    height: 3rem;
+    font-size: 1rem;
+    margin-left: -0.5rem;
+    background-color: #2130db;
+    color: white;
+    font-family: "Kanit", sans-serif;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    transition: all ease-in-out 250ms;
+  }
+  footer .container2 .left button:hover {
+    cursor: pointer;
+    background-color: #212a94;
+    transition: all ease-in-out 250ms;
+  }
+}
+@media screen and (min-width: 375px) and (max-width: 424px) {
+  header {
+    display: flex;
+    height: 8rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 4rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    transition: all ease-in-out 0.3s;
+    z-index: 555555;
+  }
+  header .logo {
+    display: flex;
+    align-items: center;
+    margin-left: 4rem;
+  }
+  header .logo img {
+    width: 5rem;
+  }
+  header .logo h3 {
+    font-family: "Kanit", sans-serif;
+    font-size: 1.8rem;
+    margin-left: 1rem;
+    display: none;
+  }
+  header .nav-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 4rem;
+    display: flex;
+  }
+  header .nav-item {
+    position: relative;
+  }
+  header i {
+    font-size: 3.4rem;
+    color: #2130db;
+    margin-left: 8rem;
+  }
+  header a {
+    font-family: "Kanit", sans-serif;
+    text-decoration: none;
+    color: black;
+    margin-left: 4rem;
+    padding-bottom: 5px;
+    background: linear-gradient(0deg, #2130db, #2130db) bottom center no-repeat;
+    background-size: 0px 3px;
+    transition: 0.5s;
+    display: none;
+  }
+  header a:hover {
+    color: #2130db;
+    background-size: 100% 3px;
+  }
+  header a i {
+    font-size: 0.8rem;
+  }
+  header .dropdown {
+    display: block; /* Cambia esto a block en lugar de none */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-left: 4rem;
+    border-radius: 0.5rem;
+    visibility: hidden;
+    margin-top: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  header .nav-link:hover + .dropdown,
+  header .dropdown:hover {
+    opacity: 1;
+    visibility: visible;
+  }
+  header .dropdown-link {
+    text-decoration: none;
+    color: #000000;
+    padding: 10px 15px;
+    display: flex;
+    margin: 0;
+    min-width: 150px;
+  }
+  header .dropdown-link:hover {
+    background-color: #f1f1f1;
+  }
+  header .nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
+  #seccion1 {
+    display: flex;
+    height: 46rem;
+  }
+  #seccion1 .container {
+    background-image: url("dibujosgeometricos.jpg");
+    background-size: cover;
+    width: 95%;
+    height: 95%;
+    border-radius: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  #seccion1 .container h1 {
+    font-family: "Kanit", sans-serif;
+    color: white;
+    font-size: 4rem;
+    margin-left: 2rem;
+  }
+  #seccion1 .container button {
+    width: 10rem;
+    height: 4rem;
+    color: #2130db;
+    font-family: "Kanit", sans-serif;
+    border-radius: 1rem;
+    border: none;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    border: 2px solid #fff;
+    transition: all ease-in-out 0.3s;
+  }
+  #seccion1 .container button:hover {
+    cursor: pointer;
+    background-color: transparent;
+    transition: all ease-in-out 0.3s;
+    color: white;
+  }
+  #seccion2 {
+    display: flex;
+    height: 50rem;
+    margin-top: 5rem;
+    width: 100%;
+  }
+  #seccion2 .container2 {
+    background-image: url("circulos.jpg");
+    background-size: cover;
+    width: 100%;
+    height: fit-content;
+    border-radius: 4rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  #seccion2 .container2 h5 {
+    font-family: "Kanit", sans-serif;
+    color: #2130db;
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    margin-left: 3rem;
+    font-weight: normal;
+  }
+  #seccion2 .container2 h1 {
+    font-family: "Kanit", sans-serif;
+    color: rgb(0, 0, 0);
+    font-size: 4rem;
+    margin-left: 3rem;
+  }
+  #seccion2 .container2 .container-tarjetas {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-left: 3rem;
+    margin-top: -2rem;
+  }
+  #seccion2 .container2 .container-tarjetas .tarjeta {
+    background-color: rgba(255, 255, 255, 0.1764705882);
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.0549019608);
+    width: 16rem;
+    display: flex;
+    margin-right: 5rem;
+    height: fit-content;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2rem;
+    padding-bottom: 2rem;
     transition: all ease-in-out 0.3s;
   }
   #seccion2 .container2 .container-tarjetas .tarjeta:hover {
@@ -1417,104 +2044,7 @@ footer .container2 .left button:hover {
     position: relative;
   }
   header i {
-    font-size: 4rem;
-    color: #2130db;
-    margin-left: 10rem;
-  }
-  header a {
-    font-family: "Kanit", sans-serif;
-    text-decoration: none;
-    color: black;
-    margin-left: 4rem;
-    padding-bottom: 5px;
-    background: linear-gradient(0deg, #2130db, #2130db) bottom center no-repeat;
-    background-size: 0px 3px;
-    transition: 0.5s;
-    display: none;
-  }
-  header a:hover {
-    color: #2130db;
-    background-size: 100% 3px;
-  }
-  header a i {
-    font-size: 0.8rem;
-  }
-  header .dropdown {
-    display: block; /* Cambia esto a block en lugar de none */
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #ffffff;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-left: 4rem;
-    border-radius: 0.5rem;
-    visibility: hidden;
-    margin-top: 1rem;
-    opacity: 0;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-  }
-  header .nav-link:hover + .dropdown,
-  header .dropdown:hover {
-    opacity: 1;
-    visibility: visible;
-  }
-  header .dropdown-link {
-    text-decoration: none;
-    color: #000000;
-    padding: 10px 15px;
-    display: flex;
-    margin: 0;
-    min-width: 150px;
-  }
-  header .dropdown-link:hover {
-    background-color: #f1f1f1;
-  }
-  header .nav-item:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-  }
-  header {
-    display: flex;
-    height: 8rem;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 4rem;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    transition: all ease-in-out 0.3s;
-    z-index: 555555;
-  }
-  header .logo {
-    display: flex;
-    align-items: center;
-    margin-left: 4rem;
-  }
-  header .logo img {
-    width: 5rem;
-  }
-  header .logo h3 {
-    font-family: "Kanit", sans-serif;
-    font-size: 1.8rem;
-    margin-left: 1rem;
-    display: none;
-  }
-  header .nav-menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    margin-right: 4rem;
-    display: flex;
-  }
-  header .nav-item {
-    position: relative;
-  }
-  header i {
-    font-size: 4rem;
+    font-size: 3.4rem;
     color: #2130db;
     margin-left: 8rem;
   }
@@ -1661,7 +2191,8 @@ footer .container2 .left button:hover {
     width: 16rem;
     display: flex;
     margin-right: 5rem;
-    height: 14rem;
+    height: fit-content;
+    padding-bottom: 2rem;
     flex-direction: column;
     align-items: center;
     border-radius: 2rem;
@@ -3421,6 +3952,12 @@ footer .container2 .left button:hover {
     background-color: #212a94;
     transition: all ease-in-out 250ms;
   }
+  .menu {
+    display: none;
+  }
+  .sombra {
+    display: none;
+  }
 }
 @media screen and (min-width: 1440px) and (max-width: 1919px) {
   header {
@@ -4064,9 +4601,21 @@ footer .container2 .left button:hover {
     background-color: #212a94;
     transition: all ease-in-out 250ms;
   }
+  .menu {
+    display: none;
+  }
+  .sombra {
+    display: none;
+  }
 }
 @media screen and (min-width: 1920px) {
   #menu {
+    display: none;
+  }
+  .menu {
+    display: none;
+  }
+  .sombra {
     display: none;
   }
 }

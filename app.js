@@ -7,8 +7,34 @@ window.addEventListener('scroll', function() {
     }
 });
 
-document.querySelector("#pincelButton").addEventListener("click", () => {
+// document.querySelector("#menu").addEventListener("click", () => {
+//     if (menuAbierto == false) {
+//         document.querySelector("#menu").classList.remove("bi-list")
+//         document.querySelector("#menu").classList.add("bi-x-lg")
+        
+//         document.querySelector(".menu").style.marginLeft = '0'
+//         document.querySelector(".sombra").style.display = 'flex'
 
-    document.querySelector("#pincel").style.height = "25rem"
+//         menuAbierto = true
+//         console.log("click")
+//     } else {
+//         menuAbierto = false
+//         document.querySelector("#menu").classList.remove("bi-x-lg")
+//         document.querySelector("#menu").classList.add("bi-list")
+//         document.querySelector(".menu").style.marginLeft = '-20rem'
+//         document.querySelector(".sombra").style.display = 'none'
+//     }
+// })
 
-})
+document.addEventListener("DOMContentLoaded", function() {
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+
+    menuBtn.addEventListener('click', function() {
+        menu.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+    });
+});
+
+
+
