@@ -22,6 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
+    
     display: flex;
     height: 8rem;
     align-items: center;
@@ -296,6 +297,7 @@ header {
     display: flex;
     margin-top: 0rem;
     width: 100%;
+    background-color: rgb(33, 117, 7);
 
     #back1 {
         position: absolute;
@@ -802,11 +804,12 @@ footer {
 .menu {
     position: fixed;
     top: 0;
-    right: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(243, 242, 242, 0.9);
+    background: rgba(243, 242, 242, 0.945);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -814,6 +817,7 @@ footer {
     transform: translateX(100%);
     transition: transform 0.5s ease-in-out;
     z-index: 1000;
+    background-attachment: fixed;
 }
 
 .menu a {
@@ -2365,14 +2369,27 @@ footer {
         margin-right: 4rem;
         position: sticky;
         top: 0;
-        width: 100%;
+        width: 100vw;
         transition: all ease-in-out 0.3s;
         z-index: 555555;
+
+        .menu-btn {
+            position: fixed;
+            display: flex;
+            top: 50px;
+            right: 60px;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 28px; /* Adjusted height for more spacing */
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
         .logo {
             display: flex;
             align-items: center;
             margin-left: 4rem;
-    
             img {
                 width: 5rem;
             }
@@ -2384,6 +2401,10 @@ footer {
                 display: none;
             }
     
+        }
+
+        .navbar {
+            display: none
         }
         
         .nav-menu {
@@ -3224,6 +3245,23 @@ footer {
             visibility: visible;
         }
     }
+
+    .navbar {
+        display: none
+    }
+
+        .menu-btn {
+            position: fixed;
+            display: flex;
+            top: 50px;
+            right: 60px;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 28px; /* Adjusted height for more spacing */
+            cursor: pointer;
+            z-index: 1001;
+        }
 
     #seccion1 {
         display: flex;
